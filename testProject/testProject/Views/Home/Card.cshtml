@@ -1,0 +1,80 @@
+﻿<div class="container">
+    <div id="grid" class="row">
+
+    </div>
+</div>
+<div class="mt-1">
+    <input type="file" name="upload" id="uploadFile" accept="xml" /><br />
+    
+</div>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@section scripts{
+<script type="text/javascript">
+        var data;
+        var self = this;
+
+        $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("CardList", "Card")',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (result) {
+        $('#grid').data("kendoGrid").dataSource.data(result.Data);
+                    },
+                    error: function (xhr, status, p3) {
+                        alert(xhr.responseText);
+                    }
+                });
+
+        $("#grid").kendoGrid({
+    height: 150,
+    columns:
+    [
+    {
+        field: "Bills",
+        title: "Bills"
+    },
+    {
+        field: "Amout",
+        title: "Amout"
+    }
+    ],
+    dataSource: self.dataSource
+    });
+
+        $('#uploadFile').on('change', function (e) {
+        e.preventDefault();
+            var files = document.getElementById('uploadFile').files;
+        if (files.length > 0) {
+            if (window.FormData !== undefined) {
+                var data = new FormData();
+                for (var x = 0; x < files.length; x++) {
+                    data.append("file" + x, files[x]);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Upload", "Card")',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (result) {
+                        alert(result);
+                    },
+                    error: function (xhr, status, p3) {
+                        alert(xhr.responseText);
+                    }
+                });
+            } else {
+                alert("Браузер не поддерживает загрузку файлов HTML5!");
+            }
+        }
+    });
+</script>
+}

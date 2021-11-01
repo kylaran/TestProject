@@ -1,0 +1,26 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Snapio.QikcarNew/config
+/packages
+/Snapio.QikcarNew/App_Data
+/Snapio.QikcarNew/bin
+/Snapio.QikcarNew/Media
+/Snapio.QikcarNew/obj/Debug
+/Snapio.QikcarNew.Services/bin/Debug
+/Snapio.QikcarNew.Services/obj/Debug
+/Snapio.QikcarNew.Modules/bin/Debug
+/Snapio.QikcarNew.Modules/obj/Debug
+/Snapio.QikcarNew.Helpers/bin/Debug
+/Snapio.QikcarNew.Helpers/obj/Debug
+/Snapio.QikcarNew.Data/bin/Debug
+/Snapio.QikcarNew.Data/obj/Debug
+/.vs/Snapio.QikcarNew/v16
+/.vs
+/Snapio.QikcarNew/obj/Staging
+/Snapio.QikcarNew/obj/Release
+/Snapio.Qikcar/App_Data
+/Snapio.Qikcar/bin
+/Snapio.Qikcar/obj
+/Snapio.Qikcar/media/1001
